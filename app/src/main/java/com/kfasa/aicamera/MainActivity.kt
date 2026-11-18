@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
             val provider = providerFuture.get()
             val selector = if (frontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
             val preview = Preview.Builder().build().also { it.surfaceProvider = previewView.surfaceProvider }
-            imageCapture = ImageCapture.Builder().setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY).build()
+            imageCapture = ImageCapture.Builder().setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY).build()
             try {
                 provider.unbindAll()
                 camera = provider.bindToLifecycle(this, selector, preview, imageCapture)
